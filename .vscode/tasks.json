@@ -1,0 +1,215 @@
+/** 
+* @description: This file contains the tasks for creating a new SvelteKit component.
+* @note: This file is used by VSCode to create a new component.
+* @note: Add this keybinding to your VSCode settings.json file to use this file:
+* @note: "key": "ctrl+shift+c", "command": "workbench.action.tasks.runTask", "args": "SvelteKit: New SvelteKit Component"
+*/
+{
+	"version": "2.0.0",
+  
+	"tasks": [
+		{
+			"label": "SvelteKit: New SvelteKit Component",
+			"detail": "Creates new SvelteKit component",
+			"group": {
+				"kind": "none",
+				"isDefault": true
+			},
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"SvelteKit: new component dir",
+				"SvelteKit: new component base",
+				"SvelteKit: new component test dir",
+				"SvelteKit: new component test",
+				"SvelteKit: new component stories dir",
+				"SvelteKit: new component story",
+				"SvelteKit: new component scripts dir",
+				"SvelteKit: new component styles dir"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "SvelteKit: new component dir",
+			"detail": "Create a new directory for a component",
+			"type": "shell",
+			"command": "mkdir",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "SvelteKit: new component base",
+			"detail": "Create a new component svelte file",
+			"type": "shell",
+			"command": "touch",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}/${input:componentName}.svelte"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "SvelteKit: new component test dir",
+			"detail": "Create a new __TEST__ directory for a component",
+			"type": "shell",
+			"command": "mkdir",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}/__TEST__"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "SvelteKit: new component test",
+			"detail": "Create a new component unit test file",
+			"type": "shell",
+			"command": "touch",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}/__TEST__/${input:componentName}.unit.test.js"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "SvelteKit: new component integration test",
+			"detail": "Create a new component integration test file",
+			"type": "shell",
+			"command": "touch",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}/__TEST__/${input:componentName}.integration.test.js"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "SvelteKit: new component stories dir",
+			"detail": "Create a new story directory for a component",
+			"type": "shell",
+			"command": "mkdir",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}/__STORIES__"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "SvelteKit: new component story",
+			"detail": "Create a new story component story file",
+			"type": "shell",
+			"command": "touch",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}/__STORIES__/${input:componentName}.stories.js"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "SvelteKit: new component scripts dir",
+			"detail": "Create a new scripts directory for a component",
+			"type": "shell",
+			"command": "mkdir",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}/scripts"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "SvelteKit: new component styles dir",
+			"detail": "Create a new styles directory for a component",
+			"type": "shell",
+			"command": "mkdir",
+			"args": [
+				"${workspaceFolder}/src/lib/${input:componentType}/${input:componentName}/styles"
+			],
+			"presentation": {
+				"echo": false,
+				"focus": false,
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "silent",
+				"panel": "shared"
+			}
+		}
+	],
+
+// ........................................................................................
+
+	"inputs": [
+		{
+			"id": "componentType",
+			"description": "What type of component do you want to create?",
+			"type": "pickString",
+			"options": 
+			[ 
+				{ "label": "atom", "value": "atoms" },
+				{ "label": "molecule", "value": "molecules" },
+				{ "label": "organism", "value": "organisms" },
+			]
+		},
+		{
+			"id": "componentName",
+			"description": "New component name:",
+			"type": "promptString",
+			"default": "NewComponent"
+		}
+	]
+}
